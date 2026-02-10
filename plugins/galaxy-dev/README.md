@@ -72,7 +72,7 @@ Add the Galaxy Development Marketplace to your Claude configuration:
 
 ```bash
 # Add marketplace to Claude config
-claude config set pluginMarketplaces.0 https://raw.githubusercontent.com/arash77/claude-marketplace/main/marketplace.json
+claude config set pluginMarketplaces.0 https://raw.githubusercontent.com/arash77/galaxy-claude-marketplace/main/marketplace.json
 
 # Install galaxy-dev plugin
 claude plugin install galaxy-dev
@@ -83,7 +83,7 @@ Or manually edit `~/.config/claude/config.json`:
 ```json
 {
   "pluginMarketplaces": [
-    "https://raw.githubusercontent.com/arash77/claude-marketplace/main/marketplace.json"
+    "https://raw.githubusercontent.com/arash77/galaxy-claude-marketplace/main/marketplace.json"
   ]
 }
 ```
@@ -96,14 +96,14 @@ claude plugin install galaxy-dev
 
 ### From Source (Development)
 
-For development or contributing, clone and use locally:
+For development or contributing, clone the monorepo and use locally:
 
 ```bash
-# Clone the plugin
-git clone https://github.com/arash77/galaxy-dev.git ~/galaxy-dev
+# Clone the marketplace monorepo
+git clone https://github.com/arash77/galaxy-claude-marketplace.git ~/galaxy-claude-marketplace
 
 # Use the plugin
-claude --plugin-dir ~/galaxy-dev
+claude --plugin-dir ~/galaxy-claude-marketplace/plugins/galaxy-dev
 ```
 
 ## Usage Examples
@@ -300,10 +300,10 @@ lib/galaxy_test/api/  # API endpoint tests
 
 This plugin is developed for the Galaxy Project community. Contributions welcome!
 
-1. Fork the repository
+1. Fork the repository at https://github.com/arash77/galaxy-claude-marketplace
 2. Create a feature branch
-3. Make your changes
-4. Test locally: `claude --plugin-dir ./galaxy-dev`
+3. Make your changes in the `plugins/galaxy-dev/` directory
+4. Test locally: `claude --plugin-dir ./plugins/galaxy-dev`
 5. Submit a pull request
 
 ## License
@@ -312,7 +312,7 @@ MIT License - see LICENSE file for details
 
 ## Support
 
-- GitHub Issues: https://github.com/arash77/galaxy-dev/issues
+- GitHub Issues: https://github.com/arash77/galaxy-claude-marketplace/issues
 - Galaxy Project: https://galaxyproject.org/
 - Galaxy Gitter: https://gitter.im/galaxyproject/Lobby
 
