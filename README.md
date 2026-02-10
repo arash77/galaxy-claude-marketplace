@@ -14,7 +14,7 @@ Claude Code plugins for Galaxy Project development - all in one place!
 /plugin install galaxy-dev@galaxy-claude-marketplace
 ```
 
-That's it! All skills will be available: `/db-migration`, `/api-endpoint`, `/testing`
+That's it! All skills will be available: `/db-migration`, `/api-endpoint`, `/testing` (plus automatic `galaxy-context`)
 
 ### Alternative: Use directly without marketplace
 
@@ -31,6 +31,7 @@ claude --plugin-dir ~/galaxy-claude-marketplace/plugins/galaxy-dev
 Galaxy development tools including:
 
 **Skills:**
+- `galaxy-context` (automatic) - Galaxy conventions, routing, and architecture reference (loads automatically)
 - `/db-migration [create|upgrade|downgrade|status|troubleshoot]` - Database migration workflows
 - `/api-endpoint [resource-name]` - Guide for creating new API endpoints
 - `/testing [run|write|unit|api|integration]` - Test running and writing guide

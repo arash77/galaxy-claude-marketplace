@@ -6,6 +6,17 @@ A Claude Code plugin providing development tools for the Galaxy Project, includi
 
 ### Skills
 
+#### `galaxy-context` (Automatic) - Galaxy Development Context & Routing
+**Not user-invocable** - Loads automatically when working in a Galaxy codebase.
+
+Provides Galaxy-specific conventions and intelligent routing:
+- Enforces critical conventions (always use `run_tests.sh`, avoid reading large files)
+- Routes user intent to appropriate skills (`/db-migration`, `/api-endpoint`, `/testing`)
+- Provides Galaxy architecture reference (Manager pattern, FastAPI structure)
+- Acts as a coordination layer between user requests and specialized skills
+
+This skill works behind the scenes to ensure Claude follows Galaxy best practices and uses the right tools for each task.
+
 #### `/db-migration` - Database Migration Management
 Comprehensive guidance for Galaxy's Alembic-based database migrations:
 - Create new migration revisions
@@ -225,6 +236,37 @@ lib/galaxy_test/api/  # API endpoint tests
 
 ## Skill Details
 
+### Galaxy Context Skill (Automatic)
+
+The `galaxy-context` skill is **not user-invocable** - it loads automatically when Claude works in a Galaxy codebase. It provides three key functions:
+
+#### 1. Galaxy Development Conventions
+
+**Critical Rules Enforced:**
+- **Always use `./run_tests.sh`** - Never run `pytest` directly. Galaxy's test suite requires special configuration and fixtures that only `run_tests.sh` provides.
+- **Avoid reading large files** - Files like `client/src/api/schema/schema.ts` (46,529 lines) and `lib/galaxy/model/__init__.py` (12,677 lines) will exhaust token budgets. Use Grep with patterns or the galaxy-explorer agent instead.
+- **Manager pattern** - Business logic belongs in manager classes (`lib/galaxy/managers/`) following the flow: API Router → Manager → Model.
+
+#### 2. Intelligent Skill Routing
+
+Routes user intent to specialized skills:
+- **Database operations** → `/db-migration` (schema changes, migrations, Alembic)
+- **API development** → `/api-endpoint` (FastAPI routers, Pydantic schemas)
+- **Testing operations** → `/testing` (running tests, writing tests, test patterns)
+- **Architecture questions** → `galaxy-explorer` agent (codebase exploration, pattern identification)
+
+**Example:** When a user mentions "add a column to the workflow table", the context skill recognizes this as a database operation and routes to `/db-migration create`.
+
+#### 3. Architecture Reference
+
+Provides quick reference for Galaxy structure:
+- **Backend:** FastAPI routers, Pydantic schemas, SQLAlchemy models, Manager pattern
+- **Frontend:** Vue 2.7 components, Pinia stores, TypeScript
+- **Testing:** Unit tests, API tests, integration tests via `run_tests.sh`
+- **Key directories:** `lib/galaxy/managers/`, `lib/galaxy/webapps/galaxy/api/`, `client/src/`, `test/`
+
+**Why it's automatic:** The context skill ensures every interaction follows Galaxy conventions and uses the right specialized skills, preventing common mistakes like running pytest directly or reading massive auto-generated files.
+
 ### Database Migration Skill
 
 **Covers:**
@@ -319,6 +361,7 @@ MIT License - see LICENSE file for details
 ## Version History
 
 ### 0.1.0 (Initial Release)
+- Galaxy context skill (automatic) - Conventions, routing, and architecture reference
 - Database migration skill
 - API endpoint creation skill
 - Testing skill with comprehensive patterns
