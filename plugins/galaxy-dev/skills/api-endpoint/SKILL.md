@@ -1,6 +1,9 @@
 ---
 name: api-endpoint
-description: Guide through creating a new Galaxy API endpoint following project patterns. Use when adding new REST endpoints.
+description: >
+  Create Galaxy REST API endpoints with FastAPI routers, Pydantic schemas, and manager pattern.
+  Use for: new API routes, FastAPI endpoints, REST resources, Pydantic request/response models,
+  lib/galaxy/webapps/galaxy/api routers, lib/galaxy/schema definitions, API controller creation.
 argument-hint: "[resource-name]"
 ---
 

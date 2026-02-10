@@ -1,6 +1,10 @@
 ---
 name: db-migration
-description: Galaxy database migration guidance - create revisions, upgrade, downgrade, check status, troubleshoot
+description: >
+  Galaxy database migration with Alembic - create schema changes (add table/column),
+  upgrade/downgrade database versions, check migration status, troubleshoot errors.
+  Use for: SQLAlchemy model changes, database schema modifications, Alembic revisions,
+  migration version conflicts, lib/galaxy/model changes.
 argument-hint: "[create|upgrade|downgrade|status|troubleshoot]"
 ---
 

@@ -1,6 +1,10 @@
 ---
 name: testing
-description: Galaxy test running and writing guide. Use when running tests or creating new test files.
+description: >
+  Galaxy testing with pytest and run_tests.sh - run/write unit, integration, API, selenium tests.
+  Use for: test execution, test failures, pytest errors, ApiTestCase patterns, test fixtures,
+  writing new tests, debugging test failures, test/integration, lib/galaxy_test/api tests.
+  CRITICAL: Always use ./run_tests.sh, never pytest directly.
 argument-hint: "[run|write|unit|api|integration]"
 ---
 

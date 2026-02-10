@@ -5,7 +5,7 @@
   "author": {
     "name": "Galaxy Project"
   },
-  "repository": "https://github.com/arash77/galaxy-dev",
+  "repository": "https://github.com/arash77/galaxy-claude-marketplace",
   "license": "MIT",
   "keywords": ["galaxy", "bioinformatics", "database", "api", "testing"]
 }
