@@ -172,7 +172,7 @@ claude plugin validate .
 claude --plugin-dir ./plugins/galaxy-dev
 
 # Test skill invocation
-/db-migration create
+/galaxy-db-migration create
 
 # Test agent
 /agent galaxy-explorer
@@ -184,9 +184,9 @@ claude --plugin-dir ./plugins/galaxy-dev
 
 **Skills:**
 - `galaxy-context` (user-invocable: false) - Auto-loads to provide conventions and route to specialized skills
-- `/db-migration` - Alembic database migration workflows with task-based routing
-- `/api-endpoint` - FastAPI endpoint creation guide
-- `/testing` - Galaxy test infrastructure guide
+- `/galaxy-db-migration` - Alembic database migration workflows with task-based routing
+- `/galaxy-api-endpoint` - FastAPI endpoint creation guide
+- `/galaxy-testing` - Galaxy test infrastructure guide
 
 **Agent:**
 - `galaxy-explorer` - Read-only exploration (haiku model, 15 turns max)

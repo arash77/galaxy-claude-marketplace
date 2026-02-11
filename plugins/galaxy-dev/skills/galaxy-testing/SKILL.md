@@ -1,5 +1,5 @@
 ---
-name: testing
+name: galaxy-testing
 description: >
   Galaxy testing with pytest and run_tests.sh - run/write unit, integration, API, selenium tests.
   Use for: test execution, test failures, pytest errors, ApiTestCase patterns, test fixtures,

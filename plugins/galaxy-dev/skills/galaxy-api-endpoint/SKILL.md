@@ -1,5 +1,5 @@
 ---
-name: api-endpoint
+name: galaxy-api-endpoint
 description: >
   Create Galaxy REST API endpoints with FastAPI routers, Pydantic schemas, and manager pattern.
   Use for: new API routes, FastAPI endpoints, REST resources, Pydantic request/response models,

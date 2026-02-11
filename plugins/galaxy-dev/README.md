@@ -11,13 +11,13 @@ A Claude Code plugin providing development tools for the Galaxy Project, includi
 
 Provides Galaxy-specific conventions and intelligent routing:
 - Enforces critical conventions (always use `run_tests.sh`, avoid reading large files)
-- Routes user intent to appropriate skills (`/db-migration`, `/api-endpoint`, `/testing`)
+- Routes user intent to appropriate skills (`/galaxy-db-migration`, `/galaxy-api-endpoint`, `/galaxy-testing`)
 - Provides Galaxy architecture reference (Manager pattern, FastAPI structure)
 - Acts as a coordination layer between user requests and specialized skills
 
 This skill works behind the scenes to ensure Claude follows Galaxy best practices and uses the right tools for each task.
 
-#### `/db-migration` - Database Migration Management
+#### `/galaxy-db-migration` - Database Migration Management
 Comprehensive guidance for Galaxy's Alembic-based database migrations:
 - Create new migration revisions
 - Upgrade/downgrade database
@@ -26,14 +26,14 @@ Comprehensive guidance for Galaxy's Alembic-based database migrations:
 
 **Usage:**
 ```bash
-/db-migration              # Show task menu
-/db-migration create       # Guide through creating new migration
-/db-migration upgrade      # Show upgrade commands
-/db-migration status       # Check database version
-/db-migration troubleshoot # Diagnose errors
+/galaxy-db-migration              # Show task menu
+/galaxy-db-migration create       # Guide through creating new migration
+/galaxy-db-migration upgrade      # Show upgrade commands
+/galaxy-db-migration status       # Check database version
+/galaxy-db-migration troubleshoot # Diagnose errors
 ```
 
-#### `/api-endpoint` - API Endpoint Creation
+#### `/galaxy-api-endpoint` - API Endpoint Creation
 Step-by-step guide for creating new Galaxy API endpoints following project patterns:
 - Define Pydantic schemas
 - Create manager methods
@@ -42,11 +42,11 @@ Step-by-step guide for creating new Galaxy API endpoints following project patte
 
 **Usage:**
 ```bash
-/api-endpoint              # Show creation workflow
-/api-endpoint credentials  # Guide for specific resource
+/galaxy-api-endpoint              # Show creation workflow
+/galaxy-api-endpoint credentials  # Guide for specific resource
 ```
 
-#### `/testing` - Test Running and Writing
+#### `/galaxy-testing` - Test Running and Writing
 Complete guide to Galaxy's test infrastructure:
 - Run unit, API, and integration tests
 - Write new tests following patterns
@@ -55,12 +55,12 @@ Complete guide to Galaxy's test infrastructure:
 
 **Usage:**
 ```bash
-/testing           # Show test types menu
-/testing run       # Test running reference
-/testing write     # Guide for writing tests
-/testing unit      # Unit test patterns
-/testing api       # API test patterns
-/testing integration # Integration test patterns
+/galaxy-testing           # Show test types menu
+/galaxy-testing run       # Test running reference
+/galaxy-testing write     # Guide for writing tests
+/galaxy-testing unit      # Unit test patterns
+/galaxy-testing api       # API test patterns
+/galaxy-testing integration # Integration test patterns
 ```
 
 ### Agent
@@ -123,7 +123,7 @@ claude --plugin-dir ~/galaxy-claude-marketplace/plugins/galaxy-dev
 
 ```bash
 # Start migration workflow
-/db-migration create
+/galaxy-db-migration create
 
 # Claude will guide you through:
 # 1. Confirming model updates
@@ -136,7 +136,7 @@ claude --plugin-dir ~/galaxy-claude-marketplace/plugins/galaxy-dev
 
 ```bash
 # Guide for creating credentials endpoint
-/api-endpoint credentials
+/galaxy-api-endpoint credentials
 
 # Claude will walk through:
 # 1. Finding similar endpoints as reference
@@ -152,7 +152,7 @@ claude --plugin-dir ~/galaxy-claude-marketplace/plugins/galaxy-dev
 
 ```bash
 # Get test running reference
-/testing run
+/galaxy-testing run
 
 # Shows commands like:
 # ./run_tests.sh -api lib/galaxy_test/api/test_workflows.py
@@ -164,7 +164,7 @@ claude --plugin-dir ~/galaxy-claude-marketplace/plugins/galaxy-dev
 
 ```bash
 # Guide for writing API tests
-/testing api
+/galaxy-testing api
 
 # Shows:
 # - Test structure and patterns
@@ -250,12 +250,12 @@ The `galaxy-context` skill is **not user-invocable** - it loads automatically wh
 #### 2. Intelligent Skill Routing
 
 Routes user intent to specialized skills:
-- **Database operations** → `/db-migration` (schema changes, migrations, Alembic)
-- **API development** → `/api-endpoint` (FastAPI routers, Pydantic schemas)
-- **Testing operations** → `/testing` (running tests, writing tests, test patterns)
+- **Database operations** → `/galaxy-db-migration` (schema changes, migrations, Alembic)
+- **API development** → `/galaxy-api-endpoint` (FastAPI routers, Pydantic schemas)
+- **Testing operations** → `/galaxy-testing` (running tests, writing tests, test patterns)
 - **Architecture questions** → `galaxy-explorer` agent (codebase exploration, pattern identification)
 
-**Example:** When a user mentions "add a column to the workflow table", the context skill recognizes this as a database operation and routes to `/db-migration create`.
+**Example:** When a user mentions "add a column to the workflow table", the context skill recognizes this as a database operation and routes to `/galaxy-db-migration create`.
 
 #### 3. Architecture Reference
 

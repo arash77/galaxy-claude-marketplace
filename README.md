@@ -14,7 +14,7 @@ Claude Code plugins for Galaxy Project development - all in one place!
 /plugin install galaxy-dev@galaxy-claude-marketplace
 ```
 
-That's it! All skills will be available: `/db-migration`, `/api-endpoint`, `/testing` (plus automatic `galaxy-context`)
+That's it! All skills will be available: `/galaxy-db-migration`, `/galaxy-api-endpoint`, `/galaxy-testing` (plus automatic `galaxy-context`)
 
 ### Alternative: Use directly without marketplace
 
@@ -32,9 +32,9 @@ Galaxy development tools including:
 
 **Skills:**
 - `galaxy-context` (automatic) - Galaxy conventions, routing, and architecture reference (loads automatically)
-- `/db-migration [create|upgrade|downgrade|status|troubleshoot]` - Database migration workflows
-- `/api-endpoint [resource-name]` - Guide for creating new API endpoints
-- `/testing [run|write|unit|api|integration]` - Test running and writing guide
+- `/galaxy-db-migration [create|upgrade|downgrade|status|troubleshoot]` - Database migration workflows
+- `/galaxy-api-endpoint [resource-name]` - Guide for creating new API endpoints
+- `/galaxy-testing [run|write|unit|api|integration]` - Test running and writing guide
 
 **Agent:**
 - `galaxy-explorer` - Architecture-aware codebase exploration agent
@@ -45,22 +45,22 @@ Galaxy development tools including:
 
 ### Database Migrations
 ```bash
-/db-migration create    # Create new migration
-/db-migration upgrade   # Upgrade database
-/db-migration status    # Check migration status
+/galaxy-db-migration create    # Create new migration
+/galaxy-db-migration upgrade   # Upgrade database
+/galaxy-db-migration status    # Check migration status
 ```
 
 ### API Endpoints
 ```bash
-/api-endpoint credentials    # Guide for creating credentials endpoint
-/api-endpoint               # Show general workflow
+/galaxy-api-endpoint credentials    # Guide for creating credentials endpoint
+/galaxy-api-endpoint               # Show general workflow
 ```
 
 ### Testing
 ```bash
-/testing run           # Show test running commands
-/testing api           # Guide for writing API tests
-/testing integration   # Guide for integration tests
+/galaxy-testing run           # Show test running commands
+/galaxy-testing api           # Guide for writing API tests
+/galaxy-testing integration   # Guide for integration tests
 ```
 
 ## 🔄 Updating

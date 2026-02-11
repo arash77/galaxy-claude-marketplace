@@ -3,9 +3,9 @@ name: galaxy-context
 description: >
   Galaxy project development conventions and skill routing guide.
   ALWAYS load this skill when working in a Galaxy codebase.
-  Routes to appropriate skills: use /db-migration for database/Alembic/schema changes,
-  /api-endpoint for creating REST API endpoints/FastAPI routers,
-  /testing for running or writing tests.
+  Routes to appropriate skills: use /galaxy-db-migration for database/Alembic/schema changes,
+  /galaxy-api-endpoint for creating REST API endpoints/FastAPI routers,
+  /galaxy-testing for running or writing tests.
   Use galaxy-explorer agent for codebase architecture questions.
 user-invocable: false
 ---
@@ -22,7 +22,7 @@ This skill provides essential Galaxy conventions and routing guidance to help yo
 
 ## Skill Routing Guide
 
-### 1. Database Operations → /db-migration
+### 1. Database Operations → /galaxy-db-migration
 
 **Invoke when user mentions:**
 - "database", "schema", "migration", "Alembic"
@@ -32,10 +32,10 @@ This skill provides essential Galaxy conventions and routing guidance to help yo
 - Alembic revision files in `lib/galaxy/model/migrations/alembic/versions_gxy/`
 
 **Examples:**
-- "I need to add a new table for credentials" → `/db-migration create`
-- "How do I add a column to the workflow table?" → `/db-migration create`
-- "The database won't upgrade" → `/db-migration troubleshoot`
-- "Check if migration is needed" → `/db-migration status`
+- "I need to add a new table for credentials" → `/galaxy-db-migration create`
+- "How do I add a column to the workflow table?" → `/galaxy-db-migration create`
+- "The database won't upgrade" → `/galaxy-db-migration troubleshoot`
+- "Check if migration is needed" → `/galaxy-db-migration status`
 
 **Actions:**
 - `create` - Creating new migrations after model changes
@@ -46,7 +46,7 @@ This skill provides essential Galaxy conventions and routing guidance to help yo
 
 ---
 
-### 2. API Development → /api-endpoint
+### 2. API Development → /galaxy-api-endpoint
 
 **Invoke when user mentions:**
 - "API", "endpoint", "REST", "route", "router"
@@ -56,17 +56,17 @@ This skill provides essential Galaxy conventions and routing guidance to help yo
 - Files in `lib/galaxy/schema/`
 
 **Examples:**
-- "Create an API endpoint for managing credentials" → `/api-endpoint credentials`
-- "I need a REST API for workflows" → `/api-endpoint workflows`
-- "Add a new route to handle..." → `/api-endpoint [resource-name]`
+- "Create an API endpoint for managing credentials" → `/galaxy-api-endpoint credentials`
+- "I need a REST API for workflows" → `/galaxy-api-endpoint workflows`
+- "Add a new route to handle..." → `/galaxy-api-endpoint [resource-name]`
 
 **Action:**
-- Always pass the resource name as argument (e.g., `/api-endpoint credentials`)
+- Always pass the resource name as argument (e.g., `/galaxy-api-endpoint credentials`)
 - Guides through: Pydantic schemas → Manager logic → FastAPI router → Tests
 
 ---
 
-### 3. Testing Operations → /testing
+### 3. Testing Operations → /galaxy-testing
 
 **Invoke when user mentions:**
 - "test", "tests", "pytest", "run_tests.sh"
@@ -76,10 +76,10 @@ This skill provides essential Galaxy conventions and routing guidance to help yo
 - Files in `test/`, `lib/galaxy_test/`
 
 **Examples:**
-- "Run the integration tests" → `/testing run`
-- "Write tests for this new API" → `/testing write`
-- "How do I test this endpoint?" → `/testing api`
-- "The tests are failing" → `/testing run` (to diagnose)
+- "Run the integration tests" → `/galaxy-testing run`
+- "Write tests for this new API" → `/galaxy-testing write`
+- "How do I test this endpoint?" → `/galaxy-testing api`
+- "The tests are failing" → `/galaxy-testing run` (to diagnose)
 
 **Actions:**
 - `run` - Running tests (unit, integration, selenium)

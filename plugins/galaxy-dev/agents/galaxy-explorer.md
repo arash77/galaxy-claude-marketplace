@@ -232,15 +232,15 @@ When asked "How does X work?" or "Where is X implemented?":
 - API: Search in `lib/galaxy/webapps/galaxy/api/`
 
 **"How do I create a new API endpoint?"**
-- Direct to the `galaxy-dev:api-endpoint` skill for step-by-step guidance
+- Direct to the `galaxy-dev:galaxy-api-endpoint` skill for step-by-step guidance
 
 **"How are database migrations handled?"**
-- Direct to the `galaxy-dev:db-migration` skill for guidance
+- Direct to the `galaxy-dev:galaxy-db-migration` skill for guidance
 - Migrations: `lib/galaxy/model/migrations/alembic/versions_gxy/`
 - Utilities: `lib/galaxy/model/migrations/util.py`
 
 **"How does testing work?"**
-- Direct to the `galaxy-dev:testing` skill for comprehensive guide
+- Direct to the `galaxy-dev:galaxy-testing` skill for comprehensive guide
 - Test framework: `lib/galaxy_test/api/_framework.py`
 
 ## Response Format

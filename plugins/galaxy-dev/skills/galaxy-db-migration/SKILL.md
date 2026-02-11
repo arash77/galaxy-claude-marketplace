@@ -1,5 +1,5 @@
 ---
-name: db-migration
+name: galaxy-db-migration
 description: >
   Galaxy database migration with Alembic - create schema changes (add table/column),
   upgrade/downgrade database versions, check migration status, troubleshoot errors.

@@ -378,23 +378,23 @@ maxTurns: 15                 # Optional - max iterations (default: 10)
    - Guides Claude Code to invoke appropriate skills proactively
    - File: `skills/galaxy-context/SKILL.md`
 
-2. **/db-migration** (user-invocable)
+2. **/galaxy-db-migration** (user-invocable)
    - Database migration workflows with Alembic
    - Arguments: `[create|upgrade|downgrade|status|troubleshoot]`
    - Use for: schema changes, migrations, SQLAlchemy model modifications
-   - File: `skills/db-migration/SKILL.md`
+   - File: `skills/galaxy-db-migration/SKILL.md`
 
-3. **/api-endpoint** (user-invocable)
+3. **/galaxy-api-endpoint** (user-invocable)
    - Guide for creating new REST API endpoints
    - Arguments: `[resource-name]`
    - Use for: FastAPI routers, new API routes
-   - File: `skills/api-endpoint/SKILL.md`
+   - File: `skills/galaxy-api-endpoint/SKILL.md`
 
-4. **/testing** (user-invocable)
+4. **/galaxy-testing** (user-invocable)
    - Test running and writing guide
    - Arguments: `[run|write|unit|api|integration]`
    - Use for: pytest commands, test creation patterns
-   - File: `skills/testing/SKILL.md`
+   - File: `skills/galaxy-testing/SKILL.md`
 
 #### Agents
 
@@ -485,7 +485,7 @@ claude --plugin-dir ./plugins/galaxy-dev
 /plugin install galaxy-dev@galaxy-claude-marketplace
 
 # Test skill invocation
-/db-migration create
+/galaxy-db-migration create
 
 # Test agent spawning
 /agent galaxy-explorer
