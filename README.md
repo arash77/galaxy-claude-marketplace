@@ -14,7 +14,7 @@ Claude Code plugins for Galaxy Project development - all in one place!
 /plugin install galaxy-dev@galaxy-claude-marketplace
 ```
 
-That's it! All skills will be available: `/galaxy-db-migration`, `/galaxy-api-endpoint`, `/galaxy-testing` (plus automatic `galaxy-context`)
+That's it! All skills will be available: `/galaxy-db-migration`, `/galaxy-api-endpoint`, `/galaxy-testing`, `/galaxy-linting` (plus automatic `galaxy-context`)
 
 ### Alternative: Use directly without marketplace
 
@@ -35,6 +35,7 @@ Galaxy development tools including:
 - `/galaxy-db-migration [create|upgrade|downgrade|status|troubleshoot]` - Database migration workflows
 - `/galaxy-api-endpoint [resource-name]` - Guide for creating new API endpoints
 - `/galaxy-testing [run|write|unit|api|integration]` - Test running and writing guide
+- `/galaxy-linting [check|fix|python|client|mypy|full]` - Code linting, formatting, and type checking
 
 **Agent:**
 - `galaxy-explorer` - Architecture-aware codebase exploration agent
@@ -61,6 +62,13 @@ Galaxy development tools including:
 /galaxy-testing run           # Show test running commands
 /galaxy-testing api           # Guide for writing API tests
 /galaxy-testing integration   # Guide for integration tests
+```
+
+### Linting
+```bash
+/galaxy-linting check    # Quick lint and format check
+/galaxy-linting fix      # Auto-fix formatting issues
+/galaxy-linting full     # Run complete CI lint suite
 ```
 
 ## 🔄 Updating

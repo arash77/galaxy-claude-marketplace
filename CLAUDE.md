@@ -364,11 +364,11 @@ maxTurns: 15                 # Optional - max iterations (default: 10)
 
 ## Current Plugins
 
-### galaxy-dev (v0.1.0)
+### galaxy-dev (v0.2.0)
 
 **Location:** `plugins/galaxy-dev/`
 
-**Purpose:** Galaxy Project development tools for database migrations, API development, testing, and codebase exploration.
+**Purpose:** Galaxy Project development tools for database migrations, API development, testing, linting, and codebase exploration.
 
 #### Skills
 
@@ -395,6 +395,12 @@ maxTurns: 15                 # Optional - max iterations (default: 10)
    - Arguments: `[run|write|unit|api|integration]`
    - Use for: pytest commands, test creation patterns
    - File: `skills/galaxy-testing/SKILL.md`
+
+5. **/galaxy-linting** (user-invocable)
+   - Code linting, formatting, and type checking workflows
+   - Arguments: `[check|fix|python|client|mypy|full]`
+   - Use for: ruff, black, isort, flake8, ESLint, Prettier, mypy, code style enforcement, CI compliance
+   - File: `skills/galaxy-linting/SKILL.md`
 
 #### Agents
 
