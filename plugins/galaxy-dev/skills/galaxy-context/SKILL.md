@@ -5,7 +5,8 @@ description: >
   ALWAYS load this skill when working in a Galaxy codebase.
   Routes to appropriate skills: use /galaxy-db-migration for database/Alembic/schema changes,
   /galaxy-api-endpoint for creating REST API endpoints/FastAPI routers,
-  /galaxy-testing for running or writing tests.
+  /galaxy-testing for running or writing tests,
+  /galaxy-linting for code formatting/linting/type checking.
   Use galaxy-explorer agent for codebase architecture questions.
 user-invocable: false
 ---
@@ -88,7 +89,41 @@ This skill provides essential Galaxy conventions and routing guidance to help yo
 
 ---
 
-### 4. Codebase Architecture Questions → galaxy-explorer Agent
+### 4. Linting & Formatting → /galaxy-linting
+
+**Invoke when user mentions:**
+- "lint", "linting", "format", "formatting", "code style"
+- "ruff", "black", "isort", "flake8", "mypy", "darker", "autoflake", "pyupgrade"
+- "eslint", "prettier", "type check", "type error"
+- "tox -e lint", "tox -e format", "make format", "make pyupgrade"
+- "CI lint", "lint failure", "lint error", "formatting error"
+- "fix formatting", "auto-fix", "clean up code style"
+- "unused imports", "modernize Python", "remove imports"
+- "API schema lint", "config lint", "XSD", "codespell", "redocly"
+
+**Examples:**
+- "Run lint checks" → `/galaxy-linting check`
+- "Fix formatting issues" → `/galaxy-linting fix`
+- "How do I format Python code?" → `/galaxy-linting python`
+- "Type checking errors" → `/galaxy-linting mypy`
+- "Run all CI checks" → `/galaxy-linting full`
+- "Client-side linting" → `/galaxy-linting client`
+- "Remove unused imports" → `/galaxy-linting fix`
+- "Modernize Python syntax" → `/galaxy-linting fix`
+- "Lint API schema" → `/galaxy-linting` (for specialized targets)
+
+**Actions:**
+- `check` - Quick lint check (format + lint, fastest feedback)
+- `fix` - Auto-fix formatting (make diff-format, make format, make pyupgrade, autoflake)
+- `python` - Python linting details (ruff, black, isort, flake8, darker, pyupgrade)
+- `client` - Client-side linting (ESLint, Prettier, granular targets)
+- `mypy` - Type checking with mypy
+- `full` - Complete lint suite (all CI checks)
+- No argument - For specialized targets (API schema, XSD, config files)
+
+---
+
+### 5. Codebase Architecture Questions → galaxy-explorer Agent
 
 **Use Task tool with `subagent_type="galaxy-explorer"` when user asks:**
 - "Where is X implemented?"
@@ -250,5 +285,8 @@ For known file paths or simple operations.
 - Code style: Black (120 chars), isort, Ruff, mypy with strict mode
 - Always use type hints in Python
 - Prefer TypeScript over JavaScript for new frontend code
+- Linting tools: ruff (lint + format), black, isort, flake8, mypy, autoflake, pyupgrade, ESLint, Prettier
+- Specialized linting: codespell, redocly (API schema), xmllint (XSD), config validators
+- Quick formatting tip: Use `make diff-format` during development for fast incremental formatting
 
 This context is optimized for the Galaxy codebase as of January 2026.
