@@ -11,7 +11,7 @@ A Claude Code plugin providing development tools for the Galaxy Project, includi
 
 Provides Galaxy-specific conventions and intelligent routing:
 - Enforces critical conventions (always use `run_tests.sh`, avoid reading large files)
-- Routes user intent to appropriate skills (`/galaxy-db-migration`, `/galaxy-api-endpoint`, `/galaxy-testing`)
+- Routes user intent to appropriate skills (`/galaxy-db-migration`, `/galaxy-api-endpoint`, `/galaxy-testing`, `/galaxy-linting`)
 - Provides Galaxy architecture reference (Manager pattern, FastAPI structure)
 - Acts as a coordination layer between user requests and specialized skills
 
@@ -61,6 +61,26 @@ Complete guide to Galaxy's test infrastructure:
 /galaxy-testing unit      # Unit test patterns
 /galaxy-testing api       # API test patterns
 /galaxy-testing integration # Integration test patterns
+```
+
+#### `/galaxy-linting` - Code Linting, Formatting & Type Checking
+Comprehensive guide to Galaxy's linting and formatting tools:
+- Run lint checks (ruff, flake8, black, isort)
+- Auto-fix formatting issues
+- Python-specific linting (ruff, black, isort, flake8, darker)
+- Client-side linting (ESLint, Prettier)
+- Type checking with mypy
+- Full CI lint suite simulation
+
+**Usage:**
+```bash
+/galaxy-linting           # Show quick lint check commands
+/galaxy-linting check     # Quick format + lint check
+/galaxy-linting fix       # Auto-fix formatting (make diff-format, make format)
+/galaxy-linting python    # Python linting details
+/galaxy-linting client    # Client-side linting (ESLint, Prettier)
+/galaxy-linting mypy      # Type checking guidance
+/galaxy-linting full      # Complete CI lint suite
 ```
 
 ### Agent
@@ -253,6 +273,7 @@ Routes user intent to specialized skills:
 - **Database operations** → `/galaxy-db-migration` (schema changes, migrations, Alembic)
 - **API development** → `/galaxy-api-endpoint` (FastAPI routers, Pydantic schemas)
 - **Testing operations** → `/galaxy-testing` (running tests, writing tests, test patterns)
+- **Linting & formatting** → `/galaxy-linting` (code style, ruff, black, mypy, ESLint)
 - **Architecture questions** → `galaxy-explorer` agent (codebase exploration, pattern identification)
 
 **Example:** When a user mentions "add a column to the workflow table", the context skill recognizes this as a database operation and routes to `/galaxy-db-migration create`.
@@ -320,6 +341,25 @@ Provides quick reference for Galaxy structure:
 - Common patterns
 - Troubleshooting guide
 
+### Linting Skill
+
+**Covers:**
+- Quick lint checks (tox -e format, tox -e lint)
+- Auto-fixing formatting (make diff-format, make format)
+- Python linting tools (ruff, black, isort, flake8, darker)
+- Client-side linting (ESLint, Prettier)
+- Type checking with mypy
+- Full CI lint suite
+- Troubleshooting lint failures
+
+**Includes:**
+- Tool comparison table
+- Configuration file references
+- Common error patterns and fixes
+- CI integration details
+- Workflow recommendations
+- Type annotation patterns
+
 ### Galaxy Explorer Agent
 
 **Capabilities:**
@@ -359,6 +399,13 @@ MIT License - see LICENSE file for details
 - Galaxy Gitter: https://gitter.im/galaxyproject/Lobby
 
 ## Version History
+
+### 0.2.0
+- Added galaxy-linting skill - Comprehensive code linting, formatting, and type checking
+- Covers ruff, black, isort, flake8, darker, mypy, ESLint, Prettier
+- Includes quick checks, auto-fix workflows, and full CI simulation
+- Updated galaxy-context skill to route linting operations
+- Added linting keywords to plugin metadata
 
 ### 0.1.0 (Initial Release)
 - Galaxy context skill (automatic) - Conventions, routing, and architecture reference

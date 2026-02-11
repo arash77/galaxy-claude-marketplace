@@ -12,15 +12,15 @@
     {
       "name": "galaxy-dev",
       "source": "./plugins/galaxy-dev",
-      "description": "Galaxy development tools: migrations, API endpoints, testing, and codebase exploration",
-      "version": "0.1.0",
+      "description": "Galaxy development tools: migrations, API endpoints, testing, linting, and codebase exploration",
+      "version": "0.2.0",
       "author": {
         "name": "Galaxy Project Contributors"
       },
       "homepage": "https://github.com/arash77/galaxy-claude-marketplace",
       "repository": "https://github.com/arash77/galaxy-claude-marketplace",
       "license": "MIT",
-      "keywords": ["galaxy", "bioinformatics", "database", "api", "testing", "workflow"]
+      "keywords": ["galaxy", "bioinformatics", "database", "api", "testing", "linting", "formatting", "workflow"]
     }
   ]
 }
